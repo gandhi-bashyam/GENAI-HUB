@@ -1,0 +1,22 @@
+# Python cache / compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Local environment
+.env
+
+# Virtual environment (we use shared venv in root, so ignore local venv if ever)
+venv1/
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# Chroma / vector DB
+chroma_db/
+
+# OS / IDE files
+.DS_Store
+.idea/
+.vscode/

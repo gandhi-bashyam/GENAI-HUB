@@ -1,0 +1,40 @@
+[
+  {
+    "query": "What is Ceph?",
+    "retrieved_docs": [
+      "Ceph is a distributed storage system."
+    ],
+    "answer": "Ceph is a distributed storage system.",
+    "evaluation": "**Correctness:** 1 (The answer correctly states that Ceph is a distributed storage system, which is the definition provided in the context.)\n\n**Faithfulness:** 0.5 (While the answer is technically correct, it does not provide any additional information or insight into what Ceph is or how it works. A more informative answer might have discussed the benefits of Ceph as a distributed storage system, its architecture, or its use cases.)\n\n**Short Explanation:** This answer is brief and to the point, but lacks context and detail about what Ceph does and why it's important.",
+    "latency": 6.048309087753296
+  },
+  {
+    "query": "Explain RAG",
+    "retrieved_docs": [
+      "Ceph is a distributed storage system.",
+      "RAG stands for Retrieval Augmented Generation."
+    ],
+    "answer": "Since there's no direct mention of RAG in the provided context, I'll provide an answer based on the available information. Unfortunately, since there's no explicit definition or explanation of RAG, my answer will be a brief summary:\n\nRAG stands for Retrieval Augmented Generation. However, without further context, it's unclear what this term refers to in terms of functionality, purpose, or application within Ceph or distributed storage systems in general.",
+    "evaluation": "Here are my evaluations:\n\n**Correctness: 1**\nThe answer is correct. The question asks for an explanation of RAG, and the answer provides a definition of RAG as \"Retrieval Augmented Generation\". This shows that the answerer has some knowledge about what RAG stands for.\n\n**Faithfulness: 0.5**\nWhile the answer defines RAG correctly, it does not provide any additional information or context about how RAG relates to Ceph or distributed storage systems in general, which was part of the original question. Therefore, the answer falls short in terms of providing a faithful response that addresses all aspects of the question.\n\n**Short explanation: 1**\nThe answer is concise and provides a brief summary of what RAG stands for.",
+    "latency": 9.807513952255249
+  },
+  {
+    "query": "What is a vector database?",
+    "retrieved_docs": [
+      "Ceph is a distributed storage system.",
+      "RAG stands for Retrieval Augmented Generation."
+    ],
+    "answer": "The context does not mention \"vector database.\" Therefore, I can't find any information about it in the provided context. However, I will not say \"Not found\" because there might be some relevant information that could help answer this question. \n\nFrom my general knowledge, I know that a vector database is a type of database optimized for storing and querying high-dimensional vectors. But please note that this information is not present in the given context.",
+    "evaluation": "Correctness: 0.8\nFaithfulness: 0.7\n\nThe answer correctly notes that there is no information about vector databases in the provided context, which is correct since the term \"vector database\" is not mentioned. The answer also provides a general definition of what a vector database is, which is accurate.\n\nHowever, I would rate faithfulness slightly lower because the answer does provide some additional information beyond what was asked for (i.e., the general definition of a vector database). While this information is relevant and accurate, it's not directly related to the question being asked. A more faithful answer might simply acknowledge that the term \"vector database\" is not present in the context and stop there.\n\nShort explanation: The answer correctly recognizes that the term \"vector database\" is not mentioned in the provided context and provides a general definition of what such a database is, but also acknowledges that this information may not be directly relevant to the question.",
+    "latency": 11.616103887557983
+  },
+  {
+    "query": "What is Python?",
+    "retrieved_docs": [
+      "Ceph is a distributed storage system."
+    ],
+    "answer": "Based on the provided context, there is no direct information about what Python is. However, since Python is widely used in software development and has many applications, it's likely that Python is a programming language.",
+    "evaluation": "Here are the evaluations:\n\n**Correctness: 1**\nThe answer correctly states that there is no direct information about what Python is in the provided context. It then makes an educated guess based on general knowledge, which turns out to be correct.\n\n**Faithfulness: 0.8**\nThe answer does not provide a direct quote or exact wording from the original text. Instead, it summarizes and interprets the context. While this is a common approach in evaluating answers, it slightly deviates from providing an exact faithful reproduction of the original text.\n\n**Short Explanation:** The answer correctly notes that there is no direct information about Python in the given context, but makes an educated guess based on general knowledge.",
+    "latency": 7.87332010269165
+  }
+]
