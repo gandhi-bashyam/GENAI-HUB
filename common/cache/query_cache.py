@@ -7,3 +7,6 @@ class QueryCache:
 
     def set(self, query, result):
         self.cache[query] = result
+
+    def exists(self, query):
+        return query in self.cache

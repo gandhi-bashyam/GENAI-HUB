@@ -10,7 +10,8 @@ from config.config_logger import log_config
 
 
 
-def run(vector_store):
+# def run(vector_store):
+def run(vector_store, embedding_cache, retrieval_cache):
     print("🚀 Running Enterprise RAG Module...")
 
     log_config()   # ✅ ADD THIS HERE
@@ -36,13 +37,22 @@ def run(vector_store):
     )
 
     # 5. Pipeline (🔥 NEW FEATURES ENABLED)
+    # pipeline = RAGPipeline(
+    #     retriever=retriever,
+    #     llm=router,
+    #     debug=True,                # 🔥 enable debug mode
+    #     prompt_version="v2"        # 🔥 test prompt variants
+    # )
+
     pipeline = RAGPipeline(
         retriever=retriever,
         llm=router,
-        debug=True,                # 🔥 enable debug mode
-        prompt_version="v2"        # 🔥 test prompt variants
+        cache=None,  # keep query cache separate
+        embedding_cache=embedding_cache,
+        retrieval_cache=retrieval_cache,
+        debug=True,
+        prompt_version="v2"
     )
-
     print("✅ Pipeline ready")
 
     # 6. Query

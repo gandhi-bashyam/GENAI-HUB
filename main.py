@@ -8,10 +8,16 @@ load_dotenv(".env")
 from common.embeddings.embedder_factory import get_embedder
 from common.vectordb.chroma_store import ChromaStore
 
+from common.cache.embedding_cache import EmbeddingCache
+# from common.cache.query_cache import RetrievalCache
+from common.cache.retrieval_cache import RetrievalCache
+
 # Import modules
 from modules.rag import rag_pipeline
 from modules.guardrail_chatbot import guardrail_pipeline
 
+embedding_cache = EmbeddingCache()
+retrieval_cache = RetrievalCache()
 
 def main():
 
@@ -50,11 +56,21 @@ def main():
     # ✅ Step 4: Route to module (dependency injection)
     if choice == "rag":
         print("📚 Running RAG pipeline...\n")
-        rag_pipeline.run(vector_store)
+        # rag_pipeline.run(vector_store)
+        rag_pipeline.run(
+            vector_store=vector_store,
+            embedding_cache=embedding_cache,
+            retrieval_cache=retrieval_cache
+        )
 
     elif choice == "guardrail":
         print("🛡️ Running Guardrail Chatbot...\n")
-        guardrail_pipeline.run(vector_store)
+        # guardrail_pipeline.run(vector_store)
+        guardrail_pipeline.run(
+            vector_store=vector_store,
+            embedding_cache=embedding_cache,
+            retrieval_cache=retrieval_cache
+        )
 
 
 if __name__ == "__main__":
