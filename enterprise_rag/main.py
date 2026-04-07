@@ -26,9 +26,9 @@ def run():
     docs = load_documents("data/")
     print(f"✅ Documents loaded: {len(docs)}")
 
-    # Vector store
-    vector_store = ChromaStore(embedder)
-    print("✅ Vector store initialized")
+    # # Vector store
+    # vector_store = ChromaStore(embedder)
+    # print("✅ Vector store initialized")
     vector_store.add_documents(docs)
     print("✅ Documents added to vector DB")
 

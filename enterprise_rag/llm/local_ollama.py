@@ -5,18 +5,21 @@ class LocalOllama:
         self.url = "http://localhost:11434/api/generate"
         self.model = model
 
-    def generate(self, prompt: str) -> str:
+    def generate(self, prompt: str, model=None) -> str:
         print("🔥 LOCAL OLLAMA HIT")
+
+        # ✅ Use routed model if provided
+        selected_model = model if model else self.model
 
         def call():
             response = requests.post(
                 self.url,
                 json={
-                    "model": self.model,
+                    "model": selected_model,   # ✅ FIXED
                     "prompt": prompt,
                     "stream": False
                 },
-                timeout=60  # ⬅️ production-safe timeout
+                timeout=60
             )
             response.raise_for_status()
             return response.json()["response"]

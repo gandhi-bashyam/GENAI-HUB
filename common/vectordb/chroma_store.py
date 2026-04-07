@@ -2,8 +2,8 @@
 # from langchain_community.vectorstores import Chroma
 from langchain_chroma import Chroma
 # from langchain_chroma import Chroma
-# from langchain_core.documents import Document
-from langchain.docstore.document import Document
+from langchain_core.documents import Document
+# from langchain.docstore.document import Document
 
 from common.vectordb.base_vector_store import BaseVectorStore
 
@@ -37,15 +37,37 @@ class ChromaStore(BaseVectorStore):
         Add documents with metadata to the vector store.
         Each doc must be a dict: {"text": str, "metadata": dict (optional)}
         """
-        texts = [doc["text"] for doc in docs]
-        metadatas = [doc.get("metadata", {}) for doc in docs]  # ensure dict
+        # texts = [doc["text"] for doc in docs]
+        # metadatas = [doc.get("metadata", {}) for doc in docs]  # ensure dict
 
-        print("Collection count:", self.db._collection.count())
+        if not docs:
+            print("⚠️ No documents to add")
+            return
 
-        # Add to Chroma
+        texts = []
+        metadatas = []
+
+
+        for doc in docs:
+            try:
+                if hasattr(doc, "page_content"):
+                    texts.append(doc.page_content)
+                    metadatas.append(doc.metadata)
+
+                elif isinstance(doc, dict):
+                    texts.append(doc.get("text", ""))
+                    metadatas.append(doc.get("metadata", {}))
+
+            except Exception as e:
+                print(f"❌ Skipping invalid doc: {e}")
+
+        if not texts:
+            print("❌ No valid texts to insert into DB")
+            return
+
         self.db.add_texts(texts=texts, metadatas=metadatas)
 
-        print(f"{len(docs)} documents added to Vector DB ✅")
+        print(f"✅ Added {len(texts)} documents to vector DB")
 
     def similarity_search(self, query, k=3):
         """
@@ -57,3 +79,9 @@ class ChromaStore(BaseVectorStore):
     
     def similarity_search_with_score(self, query, k):
         return self.db.similarity_search_with_score(query, k=k)
+    
+    def count(self):
+        try:
+            return self.collection.count()
+        except Exception:
+            return 0

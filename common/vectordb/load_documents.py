@@ -1,4 +1,5 @@
-from langchain.docstore.document import Document
+# from langchain.docstore.document import Document
+from langchain_core.documents import Document
 
 def load_documents(folder_path: str):
     """
